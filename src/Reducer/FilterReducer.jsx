@@ -7,7 +7,7 @@ const FilterReducer = (state, action) => {
         };
       case "Clear_Filter":
         return {
-          byCategory: null,
+          byCategory: [],
         };
       default:
         return state;

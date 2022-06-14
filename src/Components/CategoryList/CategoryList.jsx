@@ -24,14 +24,13 @@ const CategoryList = () => {
       }, [dispatch]);
   return (
     <div className='filterbar'>
-      <Link to="/">
+      
        <div className="itemName" onClick={() =>
             FilterDispatch({ type: "Clear_Filter"})
-          } >All</div></Link> 
+          } >All</div>
        {state.categoryData.map((item) => {
         return (
-          <Link
-          to="/"
+          <div
           onClick={() =>
             FilterDispatch({ type: "CATEGORY", payload: item.categoryName })
           }
@@ -39,7 +38,7 @@ const CategoryList = () => {
           <div className="itemName" key={item._id}>
             {item.categoryName}
           </div>
-        </Link>
+        </div>
           
         );
       })}
