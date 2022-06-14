@@ -6,28 +6,29 @@ import Sidebar from '../../Components/Sidebar/Sidebar'
 import { useFilter } from '../../Context/FilterContext'
 import { useVideo } from '../../Context/VideoContext'
 import VideoCard from '../../Components/VideoCard/VideoCard';
-
 import "./Homepage.css"
 const Homepage = () => {
   const {
     videoState: { videodata },
     videoDispatch,
   } = useVideo();
-
-
   const {
     FilterState: { byCategory },
   } = useFilter();
 
   const filteredVideo = () => {
     let filterVideo = videodata;
-    if (byCategory) {
-      filterVideo = filterVideo.filter(
+    if (byCategory.length!==0) {
+       var resultFilterVideo = filterVideo.filter(
         (video) => video.category === byCategory
       );
-    }
-    return filterVideo;
+      return resultFilterVideo;
+    } else{
+      return videodata;
+    }  
+    
   };
+  console.log(filteredVideo());
   useEffect(() => {
     (async () => {
       try {
@@ -39,8 +40,6 @@ const Homepage = () => {
       }
     })();
   }, [videoDispatch]);
-  console.log(videodata);
-
   return (
     <div>
       <Navbar />
