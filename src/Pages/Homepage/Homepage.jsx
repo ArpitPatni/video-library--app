@@ -28,13 +28,11 @@ const Homepage = () => {
     }  
     
   };
-  console.log(filteredVideo());
   useEffect(() => {
     (async () => {
       try {
         const response = await axios.get("/api/videos");
-        videoDispatch({ type: "savedata", payload: response.data.videos });
-        console.log(response.data.videos);
+        videoDispatch({ type: "savedata", payload: response.data.videos })
       } catch (error) {
         console.log(error, "Could not load data");
       }
@@ -47,7 +45,7 @@ const Homepage = () => {
       <Navbar />
       <Sidebar />
       <CategoryList />
-      <div className='video-display video-list '>
+      <div className='video-display video-list'>
         {filteredVideo().map((item) => (
           <div className='video-card'>
           <VideoCard item={item} />
