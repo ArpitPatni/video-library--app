@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import './Sidebar.css'
 const Sidebar = () => {
   return (
@@ -7,11 +8,21 @@ const Sidebar = () => {
             <div className="Sidebar">
                
                 <ul>
-                    <li> <i className="fa-solid fa-house sider-icn"></i><a href="#">Home</a></li>
-                    <li><i className="fa-solid fa-folder-plus sider-icn"></i><a href="#">Playlist</a></li>
-                    <li><i className="fa-solid fa-heart sider-icn"></i><a href="#">Liked</a></li>
-                    <li><i className="fa-solid fa-clock sider-icn"></i><a href="#">Watch Later</a></li>
-                    <li><i className="fa-solid fa-clock-rotate-left sider-icn"></i><a href="#">History</a></li>
+                  <Link to="/">
+                  <li> <i className="fa-solid fa-house sider-icn"></i><a>Home</a></li>
+                  </Link>
+                    
+                    <li><i className="fa-solid fa-folder-plus sider-icn"></i><a>Playlist</a></li>
+
+                    <Link to="/like">
+                    <li><i className="fa-solid fa-heart sider-icn"></i><a>Liked</a></li>
+                    </Link>
+
+                    <Link to="/watchLater">
+                    <li><i className="fa-solid fa-clock sider-icn"></i><a>Watch Later</a></li>
+                    </Link>
+                    
+                    <li><i className="fa-solid fa-clock-rotate-left sider-icn"></i><a>History</a></li>
                 </ul>
             </div>
         </div>

@@ -3,7 +3,6 @@ import { useCategory } from '../../Context/CategoryContext'
 import axios from 'axios';
 import "./CategoryList.css"
 import { useFilter } from '../../Context/FilterContext';
-import { Link } from 'react-router-dom';
 
 const CategoryList = () => {
 

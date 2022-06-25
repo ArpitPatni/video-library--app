@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+:root {
+    --black: black;
+    --white: #ffffff;
+    --bg-color:orange;
+  }
 
 *{
     margin: 0;
@@ -23,16 +28,17 @@
 }
 .Wrapper .Sidebar ul li{
     padding: 15px;
-    color: white;
+    color: var(--white);
 }
 .Wrapper .Sidebar ul li a{
-    color: white;
+    color: var(--white);
     padding: 10px;
 }
 .Wrapper .Sidebar ul li:hover{
-    color: black;
+    color: var(--black);
 }
 ul li:hover{
-    color: black;
-    background-color: orange;
+    color: var(--black);
+    background-color: var(--bg-color);
+    cursor: pointer;
 }
