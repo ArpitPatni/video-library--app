@@ -20,6 +20,19 @@ const videoReducer = (state, action) => {
           (video) => video.id !== action.payload.id
         ),
       };
+    case "ADD_TO_History":
+      return { ...state, History: action.payload };
+    case "REMOVE_FROM_History":
+      return {
+        ...state,
+        History: state.History.filter(
+          (video) => video.id !== action.payload.id
+        ),
+      };
+    case "saveCurrentVideo":
+      return { ...state, currentVideo: action.payload };
+    case "ClearHistory":
+      return { ...state, History: [] }
     default:
       return state;
   }

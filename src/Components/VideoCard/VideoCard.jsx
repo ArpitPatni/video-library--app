@@ -1,34 +1,37 @@
-import { MdPlaylistPlay, MdWatchLater,MdUnpublished } from "react-icons/md";
+import { MdPlaylistPlay, MdWatchLater, MdUnpublished } from "react-icons/md";
 import { FaThumbsUp, FaRegThumbsUp } from "react-icons/fa";
-import {AddtoLikeList,RemovetoLikeList} from "../../utils/LikeHelper"
+import { AddtoLikeList, RemovetoLikeList } from "../../utils/LikeHelper"
+import { Link } from "react-router-dom";
 import { useVideo } from "../../Context/VideoContext";
 import "./VideoCard.css"
-import {
-  Addtowatchlater,
-  Removetowatchlater,
-} from "../../utils/WatchLaterHelper";
+import { Addtowatchlater, Removetowatchlater } from "../../utils/WatchLaterHelper";
+import { AddtoHistory } from "../../utils/HistoryHelper";
 function VideoCard({ item }) {
-  const { creatorImg, creator, title, views, thumbnail,_id } =
+  const { creatorsLogo, creator, description, views, thumbnailImg, _id } =
     item;
-
-    const {
-      videoState: {LikeList,watchLater},
-      videoDispatch,
-    } = useVideo();
+  const { videoState: { LikeList, watchLater }, videoDispatch } = useVideo();
   return (
     <div className="card-padding">
-      <img className="thumbnail" src={thumbnail.url} alt={item.title} />
+      <Link to="/singleVideo">
+        <img className="thumbnail" src={thumbnailImg} alt={description} onClick={() => {
+          videoDispatch({ type: "saveCurrentVideo", payload: item });
+          AddtoHistory(item, videoDispatch);
+        }} />
+      </Link>
+
       <div className="video-details">
-        <img src={creatorImg} alt={creator} className="creator-dp" />
+
+        <img src={creatorsLogo} alt={description} className="creator-dp" />
+
         <div>
-          <h3 className="video-title">{title}</h3>
+          <h3 className="video-title">{description}</h3>
           <p>{creator}</p>
           <p>
             {views} views
           </p>
         </div>
         <div>
-        <div>
+          <div>
             {LikeList.some((video) => video._id === _id) ? (
               <FaThumbsUp
                 className="options"
@@ -53,7 +56,7 @@ function VideoCard({ item }) {
             ) : (
               <MdWatchLater
                 className="options"
-                onClick={() => Addtowatchlater(item , videoDispatch)}
+                onClick={() => Addtowatchlater(item, videoDispatch)}
               />
             )}
           </div>

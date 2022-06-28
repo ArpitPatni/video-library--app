@@ -22,7 +22,9 @@ const Sidebar = () => {
                     <li><i className="fa-solid fa-clock sider-icn"></i><a>Watch Later</a></li>
                     </Link>
                     
+                    <Link to="/history">
                     <li><i className="fa-solid fa-clock-rotate-left sider-icn"></i><a>History</a></li>
+                    </Link>
                 </ul>
             </div>
         </div>
