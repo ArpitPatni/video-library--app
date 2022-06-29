@@ -31,11 +31,11 @@ const CategoryList = () => {
         return (
           <div
           onClick={() =>
-            FilterDispatch({ type: "CATEGORY", payload: item.categoryName })
+            FilterDispatch({ type: "CATEGORY", payload: item.category })
           }
         >
           <div className="itemName" key={item._id}>
-            {item.categoryName}
+            {item.category}
           </div>
         </div>
           
