@@ -1,7 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import { useAuth } from '../../Context/AuthContext'
 import './Navbar.css'
 const Navbar = () => {
+  const { isLogin, setIsLogin } = useAuth();
   return (
     <div>
          <nav class="flex nav-item background-color">
@@ -11,8 +13,19 @@ const Navbar = () => {
         </div>
         <div class="btn-class">
 
-        <Link to="/login"><button className="btn">Login</button></Link>
-        <Link to="/login"><button className="btn">Signup</button></Link>
+        
+        <Link to="/signup"><button className="btn">Signup</button></Link>
+
+        <Link to="/login">{isLogin ? (
+            <button
+              className="btn"
+              onClick={() => setIsLogin((isLogin) => !isLogin)}
+            >
+              Logout
+            </button>
+          ) : (
+            <button className="btn">Login</button>
+          )}</Link>
 
         </div>
       </nav>
