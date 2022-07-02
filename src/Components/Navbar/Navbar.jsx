@@ -8,7 +8,7 @@ const Navbar = () => {
     <div>
          <nav class="flex nav-item background-color">
         <div class="left-nav flex">
-          <Link to="/"><a href="index.html" class="nav-heading">Patni's Hub</a></Link>
+          <Link to="/"><a class="nav-heading">Patni's Hub</a></Link>
           <input class="search-bar" placeholder="Search here" />
         </div>
         <div class="btn-class">
