@@ -9,6 +9,7 @@ import Loginpage from "./Pages/LoginPage/Loginpage"
 import SignupPage from "./Pages/SignupPage/SignupPage"
 import { RequiresAuth } from "./RequiresAuth";
 import PageNotFound from "./Pages/404-page/PageNotFound"
+import Playlist from "./Pages/Playlist/Playlist"
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/watchLater" element={<RequiresAuth><WatchLater /></RequiresAuth>} />
         <Route path="/singleVideo" element={<SingleVideoPage />} />
         <Route path="/history" element={<RequiresAuth><HistoryPage /></RequiresAuth>} />
+        <Route path="/playlist" element={<RequiresAuth><Playlist /></RequiresAuth>}/>
         <Route path="/login" element={<Loginpage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="*" element={<PageNotFound/>}/>

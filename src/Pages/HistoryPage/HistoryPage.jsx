@@ -26,7 +26,6 @@ function HistoryPage() {
   return (
     <div>
       <Navbar />
-
       <Sidebar />
       <div>
         <div className="historyHeading">

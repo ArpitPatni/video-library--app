@@ -35,10 +35,13 @@
     padding: 10px;
 }
 .Wrapper .Sidebar ul li:hover{
-    color: var(--black);
+    color: var(--bg-color);
+}
+.Wrapper .Sidebar ul li a:hover{
+    color: var(--bg-color);
 }
 ul li:hover{
     color: var(--black);
-    background-color: var(--bg-color);
+    /* background-color: var(--bg-color); */
     cursor: pointer;
 }
